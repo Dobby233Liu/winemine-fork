@@ -294,7 +294,7 @@ static void CreateBoard( BOARD *p_board )
     bottom = top + LED_HEIGHT;
     SetRect( &p_board->counter_rect, left, top, right, bottom );
 
-    p_board->status = WAITING;
+    p_board->status = PLAYING;
     p_board->face_bmp = SMILE_BMP;
     p_board->time = 0;
 
@@ -316,6 +316,7 @@ static void CreateBoard( BOARD *p_board )
 /* Randomly places mines everywhere except the selected box. */
 static void PlaceMines ( BOARD *p_board, int selected_col, int selected_row )
 {
+    int col, row;
     for( col = 1; col < p_board->cols + 1; col++ )
     for( row = 1; row < p_board->rows + 1; row++ ) {
         p_board->box[col][row].IsMine = TRUE;
@@ -330,7 +331,7 @@ static void DrawMine( HDC hdc, HDC hMemDC, BOARD *p_board, unsigned col, unsigne
            return;
 
     if(1){
-        if( p_board->box[col][row].IsMine && p_board->status == GAMEOVER) {
+        if(p_board->box[col][row].IsMine && p_board->status == GAMEOVER) {
             switch( p_board->box[col][row].FlagType ) {
             case FLAG:
             case QUESTION:
