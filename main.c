@@ -145,12 +145,6 @@ void SaveBoard( BOARD *p_board )
     RegSetValueExW( hkey, L"Mark", 0, REG_DWORD, (BYTE*) &p_board->IsMarkQ, sizeof(p_board->IsMarkQ) );
 
     for( i = 0; i < 3; i++ ) {
-        wsprintfW( key_name, L"Name%u", i+1 );
-        lstrcpynW( data, p_board->best_name[i], ARRAY_SIZE(data));
-        RegSetValueExW( hkey, key_name, 0, REG_SZ, (LPBYTE) data, (lstrlenW(data)+1) * sizeof(WCHAR) );
-    }
-
-    for( i = 0; i < 3; i++ ) {
         wsprintfW( key_name, L"Time%u", i+1 );
         RegSetValueExW( hkey, key_name, 0, REG_DWORD, (LPBYTE) &p_board->best_time[i], sizeof(p_board->best_time[i]) );
     }
