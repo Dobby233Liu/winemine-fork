@@ -85,16 +85,6 @@ static void LoadBoard( BOARD *p_board )
         p_board->IsMarkQ = TRUE;
 
     for( i = 0; i < 3; i++ ) {
-        wsprintfW( key_name, L"Name%u", i+1 );
-        size = sizeof( data );
-        if( RegQueryValueExW( hkey, key_name, NULL, &type,
-                (LPBYTE) data, &size ) == ERROR_SUCCESS )
-            lstrcpynW( p_board->best_name[i], data, ARRAY_SIZE(p_board->best_name[i]));
-        else
-            LoadStringW( p_board->hInst, IDS_NOBODY, p_board->best_name[i], MAX_PLAYER_NAME_SIZE+1 );
-    }
-
-    for( i = 0; i < 3; i++ ) {
         wsprintfW( key_name, L"Time%u", i+1 );
         size = sizeof( p_board->best_time[i] );
         if( RegQueryValueExW( hkey, key_name, NULL, &type, (BYTE*) &p_board->best_time[i], &size ) )
@@ -346,7 +336,7 @@ static void DrawMine( HDC hdc, HDC hMemDC, BOARD *p_board, unsigned col, unsigne
             if (!IsPressed)
                 offset = BOX_BMP;
             else
-                offest = MPRESS_BMP;
+                offset = MPRESS_BMP;
         }
     }
 
