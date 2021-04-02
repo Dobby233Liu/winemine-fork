@@ -40,7 +40,8 @@ IDI_LEDS BITMAP "leds.bmp"
 
 IDI_MINES BITMAP "mines.bmp"
 
-RT_MANIFEST MANIFEST "manifest.xml"
+/* wenyuan cusses */
+A_FUCKING_MANIFEST MANIFEST "manifest.xml"
 
 /* no locales here but still */
 
