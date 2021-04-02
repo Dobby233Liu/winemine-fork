@@ -752,8 +752,8 @@ static LRESULT WINAPI MainProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lPara
         case IDM_ABOUT:
         {
             WCHAR appname[256], other[256];
-            LoadStringW( board.hInst, IDS_APPNAME, appname, ARRAY_SIZE(appname));
-            LoadStringW( board.hInst, IDS_ABOUT, other, ARRAY_SIZE(other));
+            LoadStringW( board.hInst, IDS_APPNAME, appname, 256);
+            LoadStringW( board.hInst, IDS_ABOUT, other, 256);
             ShellAboutW( hWnd, appname, other,
                          LoadImageW(board.hInst, MAKEINTRESOURCEW(IDI_WINEMINE), IMAGE_ICON, 48, 48, LR_SHARED));
             return 0;
@@ -773,7 +773,7 @@ int WINAPI wWinMain( HINSTANCE hInst, HINSTANCE hPrevInst, LPWSTR cmdline, int c
     HACCEL haccel;
     WCHAR appname[20];
 
-    LoadStringW( hInst, IDS_APPNAME, appname, ARRAY_SIZE(appname));
+    LoadStringW( hInst, IDS_APPNAME, appname, 20);
 
     wc.cbSize = sizeof(wc);
     wc.style = 0;
