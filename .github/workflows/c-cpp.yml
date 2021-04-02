@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: build resources
-      run: windres resource.rc resource.res
+      run: windres resource.rc -O coff -o resource.res
     - name: build exec
       run: gcc -static -O3 -o winemine.exe dialog.c main.c resource.res
     - uses: actions/upload-artifact@v2
