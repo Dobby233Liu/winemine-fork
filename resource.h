@@ -63,4 +63,4 @@
 #define DLG_CONGRATS   2
 #define DLG_CUSTOM     3
 
-#define RT_MANIFEST 1300
+#define A_FUCKING_MANIFEST 1
