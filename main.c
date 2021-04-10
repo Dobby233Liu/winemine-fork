@@ -315,7 +315,7 @@ static void DrawMine( HDC hdc, HDC hMemDC, BOARD *p_board, unsigned col, unsigne
            return;
 
     if(1){
-        if(p_board->box[col][row].IsMine && p_board->status == GAMEOVER) {
+        if(p_board->box[col][row].IsMine && p_board->box[col][row].FlagType == COMPLETE) {
             switch( p_board->box[col][row].FlagType ) {
             case FLAG:
             case QUESTION:
