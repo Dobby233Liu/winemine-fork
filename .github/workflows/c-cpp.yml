@@ -11,6 +11,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: Dobby233Liu/download-mingw@main
+      id: mingw
+    - name: fix path
+      run: |
+        set GITHUB_PATH="${{ steps.mingw.outputs.path }}\mingw64\bin;%GITHUB_PATH%"
+        refreshenv
     - name: build resources
       run: windres resource.rc -O coff -o resource.res
     - name: build exec
