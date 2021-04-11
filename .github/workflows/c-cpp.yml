@@ -14,7 +14,7 @@ jobs:
       id: mingw
     - name: fix path
       run: |
-        set GITHUB_PATH="${{ steps.mingw.outputs.path }}\mingw64\bin;%GITHUB_PATH%"
+        set GITHUB_PATH="${{ steps.mingw.outputs.path }}\bin;%GITHUB_PATH%"
         refreshenv
     - name: build resources
       run: windres resource.rc -O coff -o resource.res
