@@ -8,7 +8,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: Dobby233Liu/download-mingw@main
+    - uses: Dobby233Liu/download-mingw@1.1.0
       id: mingw
     - run: echo $env:PATH
     - name: build resources
