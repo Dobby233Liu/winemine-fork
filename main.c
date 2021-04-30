@@ -783,7 +783,7 @@ int WINAPI WinMain( HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR cmdline, int cmd
     wc.hInstance = hInst;
     wc.hIcon = LoadIconW( hInst, MAKEINTRESOURCEW(IDI_WINEMINE) );
     wc.hCursor = LoadCursorW( 0, (LPWSTR)IDI_APPLICATION );
-    wc.hbrBackground = GetStockObject( BLACK_BRUSH );
+    wc.hbrBackground = wc.hbrBackground = GetSysColorBrush(COLOR_BTNFACE); // Mod to match ReactOS
     wc.lpszMenuName = MAKEINTRESOURCEW(IDM_WINEMINE);
     wc.lpszClassName = appname;
     wc.hIconSm = LoadImageW( hInst, MAKEINTRESOURCEW(IDI_WINEMINE), IMAGE_ICON,
