@@ -314,24 +314,22 @@ static void DrawMine( HDC hdc, HDC hMemDC, BOARD *p_board, unsigned col, unsigne
     if( col == 0 || col > p_board->cols || row == 0 || row > p_board->rows )
            return;
 
-    if(1){
-        if(p_board->box[col][row].IsMine && p_board->box[col][row].FlagType == COMPLETE) {
-            switch( p_board->box[col][row].FlagType ) {
-            case FLAG:
-            case QUESTION:
-            case COMPLETE:
-                offset = EXPLODE_BMP;
-                break;
-            default:
-                offset = MINE_BMP;
-                break;
-            }
-        } else {
-            if (!IsPressed)
-                offset = BOX_BMP;
-            else
-                offset = MPRESS_BMP;
+    if(p_board->box[col][row].IsMine && p_board->box[col][row].FlagType == COMPLETE) {
+        switch( p_board->box[col][row].FlagType ) {
+        case FLAG:
+        case QUESTION:
+        case COMPLETE:
+            offset = EXPLODE_BMP;
+            break;
+        default:
+            offset = MINE_BMP;
+            break;
         }
+    } else {
+        if (!IsPressed)
+            offset = BOX_BMP;
+        else
+            offset = MPRESS_BMP;
     }
 
     BitBlt( hdc,
@@ -783,7 +781,7 @@ int WINAPI WinMain( HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR cmdline, int cmd
     wc.hInstance = hInst;
     wc.hIcon = LoadIconW( hInst, MAKEINTRESOURCEW(IDI_WINEMINE) );
     wc.hCursor = LoadCursorW( 0, (LPWSTR)IDI_APPLICATION );
-    wc.hbrBackground = wc.hbrBackground = GetSysColorBrush(COLOR_BTNFACE); // Mod to match ReactOS
+    wc.hbrBackground = GetSysColorBrush(COLOR_BTNFACE); // Mod to match ReactOS
     wc.lpszMenuName = MAKEINTRESOURCEW(IDM_WINEMINE);
     wc.lpszClassName = appname;
     wc.hIconSm = LoadImageW( hInst, MAKEINTRESOURCEW(IDI_WINEMINE), IMAGE_ICON,
