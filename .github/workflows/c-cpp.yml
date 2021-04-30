@@ -9,8 +9,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: Dobby233Liu/download-mingw@1.1.0
-      id: mingw
-    - run: echo $env:PATH
     - name: build resources
       run: windres resource.rc -O coff -F pe-i386 -o resource.res
     - name: build exec
