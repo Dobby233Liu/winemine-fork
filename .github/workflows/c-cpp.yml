@@ -17,7 +17,7 @@ jobs:
         msystem: mingw32
         install: >-
           mingw-w64-i686-gcc
-          mingw-w64-i686-windres
+          mingw-w64-i686-binutils
           make
     - name: build
       run: make
