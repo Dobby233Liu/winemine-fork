@@ -130,6 +130,6 @@ INT_PTR CALLBACK CongratsDlgProc( HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lP
 
 INT_PTR CALLBACK TimesDlgProc( HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam );
 
-void start();
+void _start();
 
 /* end of header */
