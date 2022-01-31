@@ -771,6 +771,9 @@ void start()
     HACCEL haccel;
     WCHAR appname[20];
 	HINSTANCE hInst = GetModuleHandle(NULL);
+	LPSTARTUPINFOW startupinfo;
+	GetStartupInfoW(startupinfo);
+	int cmdshow = startupinfo.wShowWindow;
 
     LoadStringW( hInst, IDS_APPNAME, appname, 20);
 
