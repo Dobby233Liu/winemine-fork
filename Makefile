@@ -14,4 +14,4 @@ all: resource.res winemine.exe
 clean:
 	rm winemine.exe resource.res
 
-.PHONY: clean resource.res winemine.exe
+.PHONY: clean all resource.res winemine.exe
