@@ -18,12 +18,11 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
  */
 
-#define WIN32_LEAN_AND_MEAN
+//#define WIN32_LEAN_AND_MEAN
 
 #include <string.h>
 #include <time.h>
 #include <windows.h>
-#include <winuser.h>
 #include <stdlib.h>
 #include <shellapi.h>
 #include "main.h"
@@ -764,7 +763,7 @@ static LRESULT WINAPI MainProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lPara
     return DefWindowProcW( hWnd, msg, wParam, lParam );
 }
 
-void _start()
+void start()
 {
     MSG msg;
     WNDCLASSEXW wc;
