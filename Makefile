@@ -9,7 +9,7 @@ resource.res:
 winemine.exe: $(SOURCE_FILES) resource.res
 	$(CC) $(CCFLAGS) -o $@ $(SOURCE_FILES) $(LIBS) $(ENTRYPOINT)
 
-all: resource.res winemine.exe
+all: winemine.exe
 
 clean:
 	rm winemine.exe resource.res
