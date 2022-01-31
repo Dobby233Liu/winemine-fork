@@ -763,13 +763,14 @@ static LRESULT WINAPI MainProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lPara
     return DefWindowProcW( hWnd, msg, wParam, lParam );
 }
 
-int WINAPI WinMain( HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR cmdline, int cmdshow )
+void start()
 {
     MSG msg;
     WNDCLASSEXW wc;
     HWND hWnd;
     HACCEL haccel;
     WCHAR appname[20];
+	HINSTANCE hInst = GetModuleHandle(NULL);
 
     LoadStringW( hInst, IDS_APPNAME, appname, 20);
 
@@ -807,5 +808,5 @@ int WINAPI WinMain( HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR cmdline, int cmd
 
         DispatchMessageW( &msg );
     }
-    return msg.wParam;
+    ExitProcess(msg.wParam);
 }
