@@ -20,7 +20,7 @@ jobs:
           mingw-w64-i686-binutils
           mingw-w64-i686-make
     - name: build
-      run: make
+      run: mingw32-make
     - uses: actions/upload-artifact@v2
       with:
         path: winemine.exe
