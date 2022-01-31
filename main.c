@@ -763,7 +763,7 @@ static LRESULT WINAPI MainProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lPara
     return DefWindowProcW( hWnd, msg, wParam, lParam );
 }
 
-void start()
+void _start()
 {
     MSG msg;
     WNDCLASSEXW wc;
