@@ -18,9 +18,9 @@ jobs:
         install: >-
           mingw-w64-i686-gcc
           mingw-w64-i686-binutils
-          make
+          mingw-w64-i686-make
     - name: build
-      run: make winmine.exe
+      run: make
     - uses: actions/upload-artifact@v2
       with:
         path: winemine.exe
