@@ -15,6 +15,8 @@ jobs:
     - uses: msys2/setup-msys2@v2
       with:
         msystem: mingw32
+        install: >-
+          mingw-w64-i686-toolchain
     - name: build resources
       run: windres resource.rc -O coff -F pe-i386 -o resource.res
     - name: build exec
