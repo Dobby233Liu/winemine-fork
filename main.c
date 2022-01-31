@@ -777,6 +777,7 @@ void _start()
 
     LoadStringW( hInst, IDS_APPNAME, appname, 20);
 
+	ShowMessageA(NULL, "A", "A", MB_OK);
     wc.cbSize = sizeof(wc);
     wc.style = 0;
     wc.lpfnWndProc = MainProc;
