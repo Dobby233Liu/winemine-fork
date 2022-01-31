@@ -20,7 +20,7 @@ jobs:
     - name: build resources
       run: windres resource.rc -O coff -F pe-i386 -o resource.res
     - name: build exec
-      run: gcc -m32 -static -lgdi32 -lgdiplus -nodefaultlibs -nostdlib -luser32 -lkernel32 -lgdi32 -lcomctl32 -ladvapi32 -lshell32 -mwindows -O3 -o winemine.exe dialog.c main.c resource.res
+      run: gcc -m32 -static -nodefaultlibs -nostdlib -mwindows -O3 -o winemine.exe dialog.c main.c resource.res -lgdi32 -lgdiplus -luser32 -lkernel32 -lgdi32 -lcomctl32 -ladvapi32 -lshell32
     - uses: actions/upload-artifact@v2
       with:
         path: winemine.exe
