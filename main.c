@@ -18,7 +18,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
  */
 
-//#define WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
 
 #include <string.h>
 #include <time.h>
@@ -771,13 +771,11 @@ void start()
     HACCEL haccel;
     WCHAR appname[20];
 	HINSTANCE hInst = GetModuleHandle(NULL);
-	LPSTARTUPINFOW startupinfo;
-	GetStartupInfoW(startupinfo);
-	int cmdshow = startupinfo->wShowWindow;
+	if (!hInst) ExitProcess(1);
+	int cmdshow = SW_SHOW;
 
     LoadStringW( hInst, IDS_APPNAME, appname, 20);
 
-	ShowMessageA(NULL, "A", "A", MB_OK);
     wc.cbSize = sizeof(wc);
     wc.style = 0;
     wc.lpfnWndProc = MainProc;
