@@ -23,6 +23,7 @@
 #include <string.h>
 #include <time.h>
 #include <windows.h>
+#include <winuser.h>
 #include <stdlib.h>
 #include <shellapi.h>
 #include "main.h"
