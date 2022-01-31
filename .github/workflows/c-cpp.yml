@@ -18,7 +18,7 @@ jobs:
         install: >-
           mingw-w64-i686-gcc
           mingw-w64-i686-binutils
-          make
+          make -v
     - name: build
       run: make
     - uses: actions/upload-artifact@v2
