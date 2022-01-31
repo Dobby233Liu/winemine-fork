@@ -6,9 +6,13 @@ jobs:
   build:
     runs-on: windows-latest
 
+    defaults:
+      run:
+        shell: msys2 {0}
+
     steps:
     - uses: actions/checkout@v2
-    - uses: Dobby233Liu/download-mingw@1.1.0
+    - uses: msys2/setup-msys2@v2
     - name: build resources
       run: windres resource.rc -O coff -F pe-i386 -o resource.res
     - name: build exec
