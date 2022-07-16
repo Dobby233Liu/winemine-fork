@@ -3,6 +3,8 @@ LIBS = -luser32 -lkernel32 -lgdi32 -lgdiplus -ladvapi32 -lshell32
 ENTRYPOINT = -Wl,-e_start
 SOURCE_FILES = dialog.c main.c resource.res
 
+all: winemine.exe
+
 resource.res:
 	windres resource.rc -O coff -F pe-i386 -o $@
 
@@ -12,6 +14,4 @@ winemine.exe: $(SOURCE_FILES)
 clean:
 	rm winemine.exe resource.res
 
-all: winemine.exe
-
-.PHONY: clean all
+.PHONY: clean all resource.res winemine.exe
