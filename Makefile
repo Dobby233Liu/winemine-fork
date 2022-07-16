@@ -12,6 +12,6 @@ winemine.exe: $(SOURCE_FILES)
 clean:
 	rm winemine.exe resource.res
 
-all: resource.res winemine.exe
+all: winemine.exe
 
 .PHONY: clean all
